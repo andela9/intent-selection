@@ -25,7 +25,7 @@ const IntentList = () => {
   };
 
   return (
-    <Row justify="space-between">
+    <Row justify="center">
       {intents.map((intent) => <Intent data={intent} select={updateSelectedIntents} />)}
     </Row>
   );

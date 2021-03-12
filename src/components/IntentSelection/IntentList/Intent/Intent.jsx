@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, Typography, Row } from 'antd';
+import {
+  Card, Typography, Row, Tag,
+} from 'antd';
 
 const { Title, Text } = Typography;
 
@@ -17,17 +19,30 @@ const Intent = ({ data, select }) => {
       }}
       hoverable
       style={{
-        width: 400, margin: 20, borderRadius: 20, textAlign: 'left', borderColor: selected ? 'blue' : 'black',
+        width: 400, margin: 20, borderRadius: 20, textAlign: 'left', borderColor: selected ? '#7bb2f5' : '#e4e4e4', fontFamily: 'Montserrat',
       }}
     >
-      <Title level={3}>{data.name}</Title>
-      <Row>{data.description}</Row>
-      <Row>
+      <Title level={3} style={{ fontWeight: 600, marginBottom: 0 }}>{data.name}</Title>
+      <Row style={{ marginBottom: 20 }}>{data.description}</Row>
+      <Row style={{ marginBottom: 10 }}>
         <Text strong>Examples: </Text>
-        {data.trainingData.expressions.reduce((string, expression) => `${string} ${expression.text}, `, '')}
       </Row>
       <Row>
+        {data.trainingData.expressions.map((expression) => (
+          <Tag style={{
+            borderRadius: 30,
+            padding: '5px 10px',
+            marginBottom: 10,
+          }}
+          >
+            {expression.text}
+          </Tag>
+        ))}
+      </Row>
+      <Row style={{ marginBottom: 10 }}>
         <Text strong>{'Reply: '}</Text>
+      </Row>
+      <Row style={{ marginBottom: 10 }}>
         {data.reply.text}
       </Row>
     </Card>
