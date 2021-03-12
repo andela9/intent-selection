@@ -1,34 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Row } from 'antd';
-
+/* eslint-disable import/no-extraneous-dependencies */
+import PropTypes from 'prop-types';
 import intents from './intents.json';
 
 import Intent from './Intent';
 
-const IntentList = () => {
-  const [selectedIntents, setSelectedIntents] = useState({});
+const IntentList = ({ updateSelected }) => (
+  <Row justify="center">
+    {intents.map((intent) => <Intent data={intent} select={updateSelected} />)}
+  </Row>
+);
 
-  console.log('selectedIntents', selectedIntents);
-
-  const updateSelectedIntents = (intent, selected) => {
-    setSelectedIntents((prevSelectedIntents) => {
-      let ret;
-
-      if (selected) {
-        ret = { ...prevSelectedIntents, [intent.name]: undefined };
-      } else {
-        ret = { ...prevSelectedIntents, [intent.name]: intent.id };
-      }
-
-      return ret;
-    });
-  };
-
-  return (
-    <Row justify="center">
-      {intents.map((intent) => <Intent data={intent} select={updateSelectedIntents} />)}
-    </Row>
-  );
+IntentList.propTypes = {
+  updateSelected: PropTypes.func.isRequired,
 };
 
 export default IntentList;
