@@ -4,7 +4,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
 
-import IntentList from './components/IntentList';
+import IntentList from './components/IntentSelection';
 
 function App() {
   return (
