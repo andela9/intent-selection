@@ -20,5 +20,6 @@ module.exports = {
   ],
   rules: {
     'linebreak-style': ['error', 'windows'],
+    'import/no-named-as-default': 0,
   },
 };

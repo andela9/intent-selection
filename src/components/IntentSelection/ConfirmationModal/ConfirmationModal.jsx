@@ -1,35 +1,13 @@
 import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
-import {
-  Modal, Row, Typography, Tag,
-} from 'antd';
-import styled from '@emotion/styled';
+import { Row, Typography } from 'antd';
+
+import common from '../../../common';
+import RoundModal from './ConfirmationModal.style';
 
 const { Text } = Typography;
-
-const RoundModal = styled(Modal)`
-  .ant-modal-header {
-    border-radius: 30px;
-    border: none;
-  }
-
-  .ant-modal-footer {
-    border-radius: 30px;
-    border: none;
-  }
-
-  .ant-modal-content {
-    border-radius: 30px;
-    padding: 10px;
-  }
-
-  .ant-modal-title {
-    font-weight: 600;
-    font-size: 24px;
-    margin-top: 3px;
-  }
-`;
+const { Tag } = common;
 
 const IntentList = ({ intents, hide, isVisible }) => (
   <RoundModal
@@ -41,23 +19,13 @@ const IntentList = ({ intents, hide, isVisible }) => (
     cancelText="Cancel"
     okButtonProps={{ type: 'primary', shape: 'round' }}
     cancelButtonProps={{ shape: 'round' }}
-    style={{ fontFamily: 'Montserrat, sans-serif' }}
   >
     <Row style={{ marginBottom: 10 }}>
       <Text strong>You have selected the following reply templates: </Text>
     </Row>
     <Row>
       {Object.keys(intents).map((intent) => (
-        <Tag
-          key={intent.text}
-          style={{
-            borderRadius: 30,
-            padding: '5px 10px',
-            marginBottom: 8,
-          }}
-        >
-          {intent}
-        </Tag>
+        <Tag value={intent} />
       ))}
     </Row>
   </RoundModal>

@@ -8,6 +8,8 @@ import useModal from '../../utils/useModal';
 import IntentList from './IntentList';
 import ConfirmationModal from './ConfirmationModal';
 
+import { layoutStyle, headerStyle, contentStyle } from './IntentSelection.style';
+
 const { Header, Content } = Layout;
 
 const { Title } = Typography;
@@ -31,14 +33,8 @@ const IntentSelection = () => {
   };
 
   return (
-    <Layout style={{
-      background: 'white', textAlign: 'left', fontFamily: 'Montserrat, sans-serif',
-    }}
-    >
-      <Header style={{
-        position: 'fixed', zIndex: 1, width: '100%', background: 'white', height: 175, padding: '100px 15% 0', verticalAlign: 'center',
-      }}
-      >
+    <Layout style={layoutStyle}>
+      <Header style={headerStyle}>
         <Row justify="space-between">
           <Col>
             <Title level={2}> Choose your reply templates </Title>
@@ -48,10 +44,7 @@ const IntentSelection = () => {
           </Col>
         </Row>
       </Header>
-      <Content style={{
-        marginTop: 175, background: 'white', marginLeft: '10%', marginRight: '10%',
-      }}
-      >
+      <Content style={contentStyle}>
         <IntentList updateSelected={updateSelected} />
         <ConfirmationModal
           intents={selectedIntents}

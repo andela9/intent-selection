@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 
-import {
-  Card, Typography, Row, Tag,
-} from 'antd';
+import { Card, Typography, Row } from 'antd';
+import common from '../../../../common';
+import { getCardStyle, getMargin } from './Intent.style';
+
+const { Tag } = common;
 
 const { Title, Text } = Typography;
 
@@ -18,33 +20,22 @@ const Intent = ({ data, select }) => {
         setSelected(!selected);
       }}
       hoverable
-      style={{
-        width: 400, margin: 20, borderRadius: 20, textAlign: 'left', border: selected ? '2px solid #7bb2f5' : '1px solid #e4e4e4',
-      }}
+      style={getCardStyle(selected)}
     >
-      <Title level={3} style={{ fontWeight: 600, marginBottom: 0 }}>{data.name}</Title>
-      <Row style={{ marginBottom: 20 }}>{data.description}</Row>
-      <Row style={{ marginBottom: 5 }}>
+      <Title level={3} style={getMargin(0)}>{data.name}</Title>
+      <Row style={getMargin(20)}>{data.description}</Row>
+      <Row style={getMargin(5)}>
         <Text strong>Examples: </Text>
       </Row>
-      <Row style={{ marginBottom: 10 }}>
+      <Row style={getMargin(10)}>
         {data.trainingData.expressions.map((expression) => (
-          <Tag
-            key={expression.text}
-            style={{
-              borderRadius: 30,
-              padding: '5px 10px',
-              marginBottom: 8,
-            }}
-          >
-            {expression.text}
-          </Tag>
+          <Tag value={expression.text} />
         ))}
       </Row>
-      <Row style={{ marginBottom: 5 }}>
-        <Text strong>{'Reply: '}</Text>
+      <Row style={getMargin(5)}>
+        <Text strong>Reply:</Text>
       </Row>
-      <Row style={{ marginBottom: 10 }}>
+      <Row style={getMargin(10)}>
         {data.reply.text}
       </Row>
     </Card>
