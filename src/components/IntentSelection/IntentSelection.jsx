@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Typography, Layout, Button, Row, Col,
 } from 'antd';
-// import omit from 'lodash/omit';
+
 import { useDispatch } from 'react-redux';
 import useModal from '../../utils/useModal';
 
@@ -18,23 +18,8 @@ const { Header, Content } = Layout;
 const { Title } = Typography;
 
 const IntentSelection = () => {
-  // const [selectedIntents, setSelectedIntents] = useState({});
   const dispatch = useDispatch();
   const [showConfirmationModal, hideConfirmationModal, isConfirmationModalVisible] = useModal();
-
-  // const updateSelected = (intent) => {
-  //   setSelectedIntents((prevSelectedIntents) => {
-  //     let ret;
-
-  //     if (intent.selected) {
-  //       ret = omit(prevSelectedIntents, [intent.name]);
-  //     } else {
-  //       ret = { ...prevSelectedIntents, [intent.name]: intent.id };
-  //     }
-
-  //     return ret;
-  //   });
-  // };
 
   const selectAll = () => {
     dispatch(selectAllIntents());
@@ -45,10 +30,12 @@ const IntentSelection = () => {
       <Header style={headerStyle}>
         <Row justify="space-between">
           <Col>
+            {/* TODO: Add a progress indicator of the bot creation process */}
             <Title level={2}> Choose your reply templates </Title>
           </Col>
           <Col>
-            <Button size="large" shape="round" onClick={selectAll}>Select All</Button>
+            {/* TODO: Add a search bar */}
+            <Button size="large" shape="round" onClick={selectAll} style={{ marginRight: 10 }}>Select All</Button>
             <Button type="primary" size="large" shape="round" onClick={showConfirmationModal}>Submit</Button>
           </Col>
         </Row>

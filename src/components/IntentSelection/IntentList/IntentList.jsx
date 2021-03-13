@@ -8,7 +8,7 @@ import Intent from './Intent';
 
 const IntentList = () => {
   const intentsList = useSelector(selectIntentsList);
-  console.log('intentsList', intentsList);
+
   return (
     <Row justify="center">
       {intentsList.map((intent) => (

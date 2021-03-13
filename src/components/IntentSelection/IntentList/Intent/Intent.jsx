@@ -26,6 +26,7 @@ const Intent = ({ info }) => {
       <Title level={3} style={getMargin(0)}>{info.name}</Title>
       <Row style={getMargin(20)}>{info.description}</Row>
       <Row style={getMargin(5)}>
+        {/* TODO: Maybe add a see more examples icon */}
         <Text strong>Examples: </Text>
       </Row>
       <Row style={getMargin(10)}>

@@ -14,7 +14,7 @@ const { Tag } = common;
 
 const IntentList = ({ hide, isVisible }) => {
   const intents = useSelector(selectSelectedIntentsList);
-  console.log('intents', intents);
+
   return (
     <RoundModal
       title="Reply template list"
@@ -32,6 +32,7 @@ const IntentList = ({ hide, isVisible }) => {
           : 'You have not selected any reply template.'}
       </Row>
       <Row>
+        {/* TODO: Add an unselect intent badge onHover */}
         {intents.map((intent) => (
           <Tag key={intent.name} value={intent.name} />
         ))}
