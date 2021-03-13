@@ -3,7 +3,10 @@ import {
   Typography, Layout, Button, Row, Col,
 } from 'antd';
 import omit from 'lodash/omit';
+import { useDispatch } from 'react-redux';
 import useModal from '../../utils/useModal';
+
+import { selectAllIntents } from '../../reducers/intents';
 
 import IntentList from './IntentList';
 import ConfirmationModal from './ConfirmationModal';
@@ -16,6 +19,7 @@ const { Title } = Typography;
 
 const IntentSelection = () => {
   const [selectedIntents, setSelectedIntents] = useState({});
+  const dispatch = useDispatch();
   const [showConfirmationModal, hideConfirmationModal, isConfirmationModalVisible] = useModal();
 
   const updateSelected = (intent, selected) => {
@@ -32,6 +36,10 @@ const IntentSelection = () => {
     });
   };
 
+  const selectAll = () => {
+    dispatch(selectAllIntents());
+  };
+
   return (
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>
@@ -40,6 +48,7 @@ const IntentSelection = () => {
             <Title level={2}> Choose your reply templates </Title>
           </Col>
           <Col>
+            <Button size="large" shape="round" onClick={selectAll}>Select All</Button>
             <Button type="primary" size="large" shape="round" onClick={showConfirmationModal}>Submit</Button>
           </Col>
         </Row>
