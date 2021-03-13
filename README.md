@@ -1,10 +1,10 @@
 # Intent Selection
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-The following libraries are also used:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+The following libraries were also used:
+ - [Redux](https://redux.js.org/)
  - [Ant Design](https://ant.design)
  - [Emotion](https://emotion.sh/docs/styled)
- - [Lodash](https://lodash.com)
 
 ## Available Scripts
 
