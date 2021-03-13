@@ -13,18 +13,16 @@ const RoundModal = styled(Modal)`
   }
 
   .ant-modal-content {
+    font-family: Montserrat, sans-serif;
     border-radius: 30px;
     padding: 10px;
+    margin-top: 15%;
   }
 
   .ant-modal-title {
     font-weight: 600;
     font-size: 24px;
     margin-top: 3px;
-  }
-
-  ant-modal-root {
-    fontFamily: 'Montserrat, sans-serif'
   }
 `;
 

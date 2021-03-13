@@ -1,12 +1,11 @@
 import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
-import { Row, Typography } from 'antd';
+import { Row } from 'antd';
 
 import common from '../../../common';
 import RoundModal from './ConfirmationModal.style';
 
-const { Text } = Typography;
 const { Tag } = common;
 
 const IntentList = ({ intents, hide, isVisible }) => (
@@ -21,7 +20,7 @@ const IntentList = ({ intents, hide, isVisible }) => (
     cancelButtonProps={{ shape: 'round' }}
   >
     <Row style={{ marginBottom: 10 }}>
-      <Text strong>You have selected the following reply templates: </Text>
+      {Object.keys(intents).length ? 'You have selected the following reply templates:' : 'You have not select any reply template.'}
     </Row>
     <Row>
       {Object.keys(intents).map((intent) => (
