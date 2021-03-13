@@ -3,7 +3,10 @@ import {
   Typography, Layout, Button, Row, Col,
 } from 'antd';
 
+import useModal from '../../common/utils/useModal';
+
 import IntentList from './IntentList';
+import ConfirmationModal from './ConfirmationModal';
 
 const { Header, Content } = Layout;
 
@@ -11,6 +14,7 @@ const { Title } = Typography;
 
 const IntentSelection = () => {
   const [selectedIntents, setSelectedIntents] = useState({});
+  const [showConfirmationModal, hideConfirmationModal, isConfirmationModalVisible] = useModal();
 
   const updateSelected = (intent, selected) => {
     setSelectedIntents((prevSelectedIntents) => {
@@ -26,10 +30,6 @@ const IntentSelection = () => {
     });
   };
 
-  const confirmSelection = () => {
-    console.log('selectedIntents', selectedIntents);
-  };
-
   return (
     <Layout style={{
       background: 'white', textAlign: 'left', fontFamily: 'Montserrat, sans-serif',
@@ -41,10 +41,10 @@ const IntentSelection = () => {
       >
         <Row justify="space-between">
           <Col>
-            <Title level={2}> Please select your preferred reply templates </Title>
+            <Title level={2}> Choose your reply templates </Title>
           </Col>
           <Col>
-            <Button type="primary" size="large" shape="round" onClick={confirmSelection}>Submit</Button>
+            <Button type="primary" size="large" shape="round" onClick={showConfirmationModal}>Submit</Button>
           </Col>
         </Row>
       </Header>
@@ -53,6 +53,11 @@ const IntentSelection = () => {
       }}
       >
         <IntentList updateSelected={updateSelected} />
+        <ConfirmationModal
+          intents={selectedIntents}
+          hide={hideConfirmationModal}
+          isVisible={isConfirmationModalVisible}
+        />
       </Content>
     </Layout>
   );

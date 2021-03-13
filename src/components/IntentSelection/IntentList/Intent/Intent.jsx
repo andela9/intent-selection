@@ -1,5 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
+/* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 
 import {
@@ -19,7 +19,7 @@ const Intent = ({ data, select }) => {
       }}
       hoverable
       style={{
-        width: 400, margin: 20, borderRadius: 20, textAlign: 'left', borderColor: selected ? '#7bb2f5' : '#e4e4e4',
+        width: 400, margin: 20, borderRadius: 20, textAlign: 'left', border: selected ? '2px solid #7bb2f5' : '1px solid #e4e4e4',
       }}
     >
       <Title level={3} style={{ fontWeight: 600, marginBottom: 0 }}>{data.name}</Title>
