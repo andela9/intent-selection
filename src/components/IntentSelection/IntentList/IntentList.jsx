@@ -1,19 +1,24 @@
 import React from 'react';
 import { Row } from 'antd';
-/* eslint-disable import/no-extraneous-dependencies */
-import PropTypes from 'prop-types';
-import intents from './intents.json';
+import { useSelector } from 'react-redux';
+
+import { selectIntentsList } from '../../../selectors/intents';
 
 import Intent from './Intent';
 
-const IntentList = ({ updateSelected }) => (
-  <Row justify="center">
-    {intents.map((intent) => <Intent key={intent.name} info={intent} select={updateSelected} />)}
-  </Row>
-);
+const IntentList = () => {
+  const intentsList = useSelector(selectIntentsList);
 
-IntentList.propTypes = {
-  updateSelected: PropTypes.func.isRequired,
+  return (
+    <Row justify="center">
+      {intentsList.map((intent) => (
+        <Intent
+          key={intent.name}
+          info={intent}
+        />
+      ))}
+    </Row>
+  );
 };
 
 export default IntentList;
