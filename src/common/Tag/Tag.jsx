@@ -7,7 +7,6 @@ import tagStyle from './Tag.style';
 
 const Tag = ({ value }) => (
   <AntTag
-    key={value}
     style={tagStyle}
   >
     {value}

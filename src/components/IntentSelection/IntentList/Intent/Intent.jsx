@@ -10,40 +10,40 @@ const { Tag } = common;
 
 const { Title, Text } = Typography;
 
-const Intent = ({ data, select }) => {
+const Intent = ({ info, select }) => {
   const [selected, setSelected] = useState(false);
 
   return (
     <Card
       onClick={() => {
-        select(data, selected);
+        select(info, selected);
         setSelected(!selected);
       }}
       hoverable
       style={getCardStyle(selected)}
     >
-      <Title level={3} style={getMargin(0)}>{data.name}</Title>
-      <Row style={getMargin(20)}>{data.description}</Row>
+      <Title level={3} style={getMargin(0)}>{info.name}</Title>
+      <Row style={getMargin(20)}>{info.description}</Row>
       <Row style={getMargin(5)}>
         <Text strong>Examples: </Text>
       </Row>
       <Row style={getMargin(10)}>
-        {data.trainingData.expressions.map((expression) => (
-          <Tag value={expression.text} />
+        {info.trainingData.expressions.map((expression) => (
+          <Tag key={expression.text} value={expression.text} />
         ))}
       </Row>
       <Row style={getMargin(5)}>
         <Text strong>Reply:</Text>
       </Row>
       <Row style={getMargin(10)}>
-        {data.reply.text}
+        {info.reply.text}
       </Row>
     </Card>
   );
 };
 
 Intent.propTypes = {
-  data: PropTypes.objectOf(PropTypes.oneOfType([
+  info: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object])).isRequired,
   select: PropTypes.func.isRequired,

@@ -31,7 +31,7 @@ const IntentList = ({ intents: intentsProp, hide, isVisible }) => {
       </Row>
       <Row>
         {intents.map((intent) => (
-          <Tag value={intent} />
+          <Tag key={intent} value={intent} />
         ))}
       </Row>
     </RoundModal>
@@ -39,7 +39,9 @@ const IntentList = ({ intents: intentsProp, hide, isVisible }) => {
 };
 
 IntentList.propTypes = {
-  intents: PropTypes.objectOf(PropTypes.object).isRequired,
+  intents: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object])).isRequired,
   hide: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
 };
