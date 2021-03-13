@@ -7,6 +7,11 @@ export const selectIntentsList = createSelector(
   (intents) => intents.list,
 );
 
+export const selectIntentsCount = createSelector(
+  [selectIntents],
+  (intents) => intents.list.length,
+);
+
 export const selectSelectedIntentsList = createSelector(
   [selectIntents],
   (intents) => intents.list.filter((intent) => intent.selected),

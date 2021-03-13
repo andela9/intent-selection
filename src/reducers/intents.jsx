@@ -274,6 +274,12 @@ export const intentsSlice = createSlice({
         return intent;
       });
     },
+    unselectAllIntents: (state) => {
+      state.list = state.list.map((intent) => {
+        intent.selected = false;
+        return intent;
+      });
+    },
     clickIntent: (state, action) => {
       const intentIndex = state.list.findIndex((intent) => intent.id === action.payload);
 
@@ -284,6 +290,6 @@ export const intentsSlice = createSlice({
 
 export const { actions, reducer } = intentsSlice;
 
-export const { selectAllIntents, clickIntent } = actions;
+export const { selectAllIntents, unselectAllIntents, clickIntent } = actions;
 
 export default reducer;
