@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
-
 import { Card, Typography, Row } from 'antd';
+
 import common from '../../../../common';
 import { getCardStyle, getMargin } from './Intent.style';
 

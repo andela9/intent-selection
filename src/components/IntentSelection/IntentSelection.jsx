@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Typography, Layout, Button, Row, Col,
 } from 'antd';
-
+import omit from 'lodash/omit';
 import useModal from '../../utils/useModal';
 
 import IntentList from './IntentList';
@@ -23,7 +23,7 @@ const IntentSelection = () => {
       let ret;
 
       if (selected) {
-        ret = { ...prevSelectedIntents, [intent.name]: undefined };
+        ret = omit(prevSelectedIntents, [intent.name]);
       } else {
         ret = { ...prevSelectedIntents, [intent.name]: intent.id };
       }
