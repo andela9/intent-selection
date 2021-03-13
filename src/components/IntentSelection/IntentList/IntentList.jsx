@@ -8,7 +8,7 @@ import Intent from './Intent';
 
 const IntentList = ({ updateSelected }) => (
   <Row justify="center">
-    {intents.map((intent) => <Intent data={intent} select={updateSelected} />)}
+    {intents.map((intent) => <Intent key={intent.name} data={intent} select={updateSelected} />)}
   </Row>
 );
 

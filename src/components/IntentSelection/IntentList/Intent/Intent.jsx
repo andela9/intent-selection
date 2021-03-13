@@ -29,11 +29,13 @@ const Intent = ({ data, select }) => {
       </Row>
       <Row style={{ marginBottom: 10 }}>
         {data.trainingData.expressions.map((expression) => (
-          <Tag style={{
-            borderRadius: 30,
-            padding: '5px 10px',
-            marginBottom: 8,
-          }}
+          <Tag
+            key={expression.text}
+            style={{
+              borderRadius: 30,
+              padding: '5px 10px',
+              marginBottom: 8,
+            }}
           >
             {expression.text}
           </Tag>
@@ -50,7 +52,9 @@ const Intent = ({ data, select }) => {
 };
 
 Intent.propTypes = {
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object])).isRequired,
   select: PropTypes.func.isRequired,
 };
 

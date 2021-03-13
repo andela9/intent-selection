@@ -3,7 +3,7 @@ import {
   Typography, Layout, Button, Row, Col,
 } from 'antd';
 
-import useModal from '../../common/utils/useModal';
+import useModal from '../../utils/useModal';
 
 import IntentList from './IntentList';
 import ConfirmationModal from './ConfirmationModal';
