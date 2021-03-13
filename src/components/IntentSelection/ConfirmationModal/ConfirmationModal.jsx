@@ -1,18 +1,20 @@
 import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
-import keys from 'lodash/keys';
+import { useSelector } from 'react-redux';
 
 import { Row } from 'antd';
+import { selectSelectedIntentsList } from '../../../selectors/intents';
+
 import common from '../../../common';
 
 import RoundModal from './ConfirmationModal.style';
 
 const { Tag } = common;
 
-const IntentList = ({ intents: intentsProp, hide, isVisible }) => {
-  const intents = keys(intentsProp);
-
+const IntentList = ({ hide, isVisible }) => {
+  const intents = useSelector(selectSelectedIntentsList);
+  console.log('intents', intents);
   return (
     <RoundModal
       title="Reply template list"
@@ -31,7 +33,7 @@ const IntentList = ({ intents: intentsProp, hide, isVisible }) => {
       </Row>
       <Row>
         {intents.map((intent) => (
-          <Tag key={intent} value={intent} />
+          <Tag key={intent.name} value={intent.name} />
         ))}
       </Row>
     </RoundModal>
@@ -39,9 +41,6 @@ const IntentList = ({ intents: intentsProp, hide, isVisible }) => {
 };
 
 IntentList.propTypes = {
-  intents: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object])).isRequired,
   hide: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
 };

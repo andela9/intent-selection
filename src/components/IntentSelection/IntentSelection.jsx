@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Typography, Layout, Button, Row, Col,
 } from 'antd';
-import omit from 'lodash/omit';
+// import omit from 'lodash/omit';
 import { useDispatch } from 'react-redux';
 import useModal from '../../utils/useModal';
 
@@ -18,23 +18,23 @@ const { Header, Content } = Layout;
 const { Title } = Typography;
 
 const IntentSelection = () => {
-  const [selectedIntents, setSelectedIntents] = useState({});
+  // const [selectedIntents, setSelectedIntents] = useState({});
   const dispatch = useDispatch();
   const [showConfirmationModal, hideConfirmationModal, isConfirmationModalVisible] = useModal();
 
-  const updateSelected = (intent, selected) => {
-    setSelectedIntents((prevSelectedIntents) => {
-      let ret;
+  // const updateSelected = (intent) => {
+  //   setSelectedIntents((prevSelectedIntents) => {
+  //     let ret;
 
-      if (selected) {
-        ret = omit(prevSelectedIntents, [intent.name]);
-      } else {
-        ret = { ...prevSelectedIntents, [intent.name]: intent.id };
-      }
+  //     if (intent.selected) {
+  //       ret = omit(prevSelectedIntents, [intent.name]);
+  //     } else {
+  //       ret = { ...prevSelectedIntents, [intent.name]: intent.id };
+  //     }
 
-      return ret;
-    });
-  };
+  //     return ret;
+  //   });
+  // };
 
   const selectAll = () => {
     dispatch(selectAllIntents());
@@ -54,9 +54,9 @@ const IntentSelection = () => {
         </Row>
       </Header>
       <Content style={contentStyle}>
-        <IntentList updateSelected={updateSelected} />
+        <IntentList />
         <ConfirmationModal
-          intents={selectedIntents}
+          // intents={selectedIntents}
           hide={hideConfirmationModal}
           isVisible={isConfirmationModalVisible}
         />

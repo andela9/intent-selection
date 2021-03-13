@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 /* eslint-disable import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 import { Card, Typography, Row } from 'antd';
 
+import { clickIntent } from '../../../../reducers/intents';
 import common from '../../../../common';
+
 import { getCardStyle, getMargin } from './Intent.style';
 
+const { Title, Text } = Typography;
 const { Tag } = common;
 
-const { Title, Text } = Typography;
-
-const Intent = ({ info, select }) => {
-  const [selected, setSelected] = useState(false);
+const Intent = ({ info }) => {
+  const dispatch = useDispatch();
 
   return (
     <Card
       onClick={() => {
-        select(info, selected);
-        setSelected(!selected);
+        dispatch(clickIntent(info.id));
       }}
       hoverable
-      style={getCardStyle(selected)}
+      style={getCardStyle(info.selected)}
     >
       <Title level={3} style={getMargin(0)}>{info.name}</Title>
       <Row style={getMargin(20)}>{info.description}</Row>
@@ -46,7 +47,6 @@ Intent.propTypes = {
   info: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object])).isRequired,
-  select: PropTypes.func.isRequired,
 };
 
 export default Intent;

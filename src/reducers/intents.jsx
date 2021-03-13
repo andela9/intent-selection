@@ -1,9 +1,10 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
 export const intentsSlice = createSlice({
   name: 'intents',
   initialState: {
-    intents: [
+    list: [
       {
         id: '34d7831e137a4016a55f98926800a643',
         name: 'Greeting',
@@ -268,13 +269,21 @@ export const intentsSlice = createSlice({
   },
   reducers: {
     selectAllIntents: (state) => {
-      console.log('state.intents', state.intents);
+      state.list = state.list.map((intent) => {
+        intent.selected = true;
+        return intent;
+      });
+    },
+    clickIntent: (state, action) => {
+      const intentIndex = state.list.findIndex((intent) => intent.id === action.payload);
+
+      state.list[intentIndex].selected = !state.list[intentIndex].selected;
     },
   },
 });
 
 export const { actions, reducer } = intentsSlice;
 
-export const { selectAllIntents } = actions;
+export const { selectAllIntents, clickIntent } = actions;
 
 export default reducer;
