@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import { Card, Typography, Row } from 'antd';
 
 import { clickIntent } from '../../../../reducers/intents';
+import { getMargin } from '../../../../utils/styleUtil';
 import common from '../../../../common';
 
-import { getCardStyle, getMargin } from './Intent.style';
+import { getCardStyle } from './Intent.style';
 
 const { Title, Text } = Typography;
 const { Tag } = common;

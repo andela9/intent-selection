@@ -12,6 +12,4 @@ export const getCardStyle = (selected) => ({
     : `1px solid ${gray}`,
 });
 
-export const getMargin = (margin) => ({ marginBottom: margin });
-
-export default { getCardStyle, getMargin };
+export default { getCardStyle };

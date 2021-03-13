@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectSelectedIntentsList, selectIntentsCount } from '../../../selectors/intents';
 import { selectAllIntents, unselectAllIntents } from '../../../reducers/intents';
 
-import { headerStyle } from './Header.style';
+import { headerStyle, titleStyle } from './Header.style';
 
 const { Header: AntdHeader } = Layout;
 
@@ -35,7 +35,7 @@ const Header = ({ showModal }) => {
       <Row justify="space-between">
         <Col>
           {/* TODO: Add a progress indicator of the bot creation process */}
-          <Title level={2}> Choose your reply templates </Title>
+          <Title level={2} style={titleStyle}> Choose your reply templates </Title>
         </Col>
         <Col>
           {/* TODO: Add a search bar */}

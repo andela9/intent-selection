@@ -7,6 +7,7 @@ import { Row } from 'antd';
 import { selectSelectedIntentsList } from '../../../selectors/intents';
 
 import common from '../../../common';
+import { getMargin } from '../../../utils/styleUtil';
 
 import RoundModal from './ConfirmationModal.style';
 
@@ -26,7 +27,7 @@ const IntentList = ({ hide, isVisible }) => {
       okButtonProps={{ type: 'primary', shape: 'round' }}
       cancelButtonProps={{ shape: 'round' }}
     >
-      <Row style={{ marginBottom: 10 }}>
+      <Row style={getMargin(10)}>
         {intents.length
           ? 'You have selected the following reply templates:'
           : 'You have not selected any reply template.'}
