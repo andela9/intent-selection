@@ -1,18 +1,41 @@
 import { colors } from '../../../utils/constants';
 
-export const headerStyle = {
+export const headerWrapper = {
   position: 'fixed',
   zIndex: 1,
   width: '100%',
   background: 'white',
-  height: 185,
-  padding: '100px 15% 0',
+  height: 200,
   verticalAlign: 'center',
   borderBottom: `1px solid ${colors.gray}`,
+  padding: 0,
 };
 
-export const titleStyle = {
+export const header = {
+  background: 'black',
+  height: 50,
+  padding: '0 20px',
+};
+
+export const company = {
+  color: 'white',
   lineHeight: 2,
 };
 
-export default { headerStyle, titleStyle };
+export const banner = {
+  padding: '0 15%',
+  marginTop: 70,
+};
+
+export const title = {
+  lineHeight: 2,
+};
+
+export const selectButton = {
+  marginRight: 10,
+  width: 140,
+};
+
+export default {
+  headerWrapper, header, company, banner, title, selectButton,
+};
