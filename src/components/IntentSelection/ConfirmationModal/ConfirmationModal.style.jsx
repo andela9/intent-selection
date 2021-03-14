@@ -24,6 +24,10 @@ const RoundModal = styled(Modal)`
     font-size: 24px;
     margin-top: 3px;
   }
+
+  .ant-modal-close-x {
+    margin: 10px;
+  }
 `;
 
 export default RoundModal;

@@ -9,23 +9,25 @@ import { banner } from './Banner.style';
 
 const { Title } = Typography;
 
-const Header = ({ showModal }) => (
+const Banner = ({ title, onPrev, onNext }) => (
   <Row style={banner} justify="space-between">
     {/* TODO: Add a progress indicator of the bot creation process */}
     <Col>
-      <Button type="primary" size="large" shape="round">Previous</Button>
+      <Button type="primary" size="large" shape="round" onClick={onPrev}>Previous</Button>
     </Col>
     <Col>
-      <Title level={2}> Choose your reply templates </Title>
+      <Title level={2}>{ title }</Title>
     </Col>
     <Col>
-      <Button type="primary" size="large" shape="round" onClick={showModal}>Next</Button>
+      <Button type="primary" size="large" shape="round" onClick={onNext}>Next</Button>
     </Col>
   </Row>
 );
 
-Header.propTypes = {
-  showModal: PropTypes.func.isRequired,
+Banner.propTypes = {
+  title: PropTypes.string.isRequired,
+  onPrev: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
 };
 
-export default Header;
+export default Banner;

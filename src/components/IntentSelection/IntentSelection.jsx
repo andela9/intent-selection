@@ -3,8 +3,10 @@ import { Layout } from 'antd';
 
 import useModal from '../../utils/useModal';
 
-import Header from './Header';
-import Banner from './Banner';
+import Header from '../../common/Header';
+import Banner from '../../common/Banner';
+import Footer from '../../common/Footer';
+
 import IntentList from './IntentList';
 import ConfirmationModal from './ConfirmationModal';
 
@@ -18,7 +20,7 @@ const IntentSelection = () => {
   return (
     <Layout style={layout}>
       <Header />
-      <Banner showModal={showConfirmationModal} />
+      <Banner title="Choose your reply templates" onPrev={() => {}} onNext={showConfirmationModal} />
       <Content style={content}>
         <IntentList />
         <ConfirmationModal
@@ -26,6 +28,7 @@ const IntentSelection = () => {
           isVisible={isConfirmationModalVisible}
         />
       </Content>
+      <Footer />
     </Layout>
   );
 };

@@ -1,4 +1,4 @@
-import { colors } from '../../../utils/constants';
+import { colors } from '../../utils/constants';
 
 export const banner = {
   position: 'fixed',

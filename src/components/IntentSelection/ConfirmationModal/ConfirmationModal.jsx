@@ -6,12 +6,10 @@ import { useSelector } from 'react-redux';
 import { Row } from 'antd';
 import { selectSelectedIntentsList } from '../../../selectors/intents';
 
-import common from '../../../common';
+import Tag from '../../../common/Tag';
 import { getMargin } from '../../../utils/styleUtil';
 
 import RoundModal from './ConfirmationModal.style';
-
-const { Tag } = common;
 
 const IntentList = ({ hide, isVisible }) => {
   const intents = useSelector(selectSelectedIntentsList);
