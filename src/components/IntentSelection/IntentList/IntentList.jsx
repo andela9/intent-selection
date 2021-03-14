@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Button } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
+import { SearchOutlined } from '@ant-design/icons';
 
 import { selectIntentsList, selectSelectedIntentsList } from '../../../selectors/intents';
 import { selectAllIntents, unselectAllIntents } from '../../../reducers/intents';
@@ -25,10 +26,11 @@ const IntentList = () => {
   return (
     <>
       <Row style={{ padding: '0px 8%', marginTop: 10, marginBottom: 10 }}>
-        {/* TODO: Add a search bar */}
         <Button size="large" shape="round" onClick={selectAll} style={selectButton}>
           {allSelected ? 'Unselect All' : 'Select All'}
         </Button>
+        {/* TODO: Add implementation, use input instead */}
+        <Button size="large" shape="round" icon={<SearchOutlined />}>Search</Button>
       </Row>
       <Row justify="center">
         {intentsList.map((intent) => (
