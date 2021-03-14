@@ -31,11 +31,6 @@ export const title = {
   lineHeight: 2,
 };
 
-export const selectButton = {
-  marginRight: 10,
-  width: 140,
-};
-
 export default {
-  headerWrapper, header, company, banner, title, selectButton,
+  headerWrapper, header, company, banner, title,
 };

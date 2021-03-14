@@ -5,54 +5,33 @@ import {
   Typography, Layout, Button, Row, Col,
 } from 'antd';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { selectSelectedIntentsList, selectIntentsCount } from '../../../selectors/intents';
-import { selectAllIntents, unselectAllIntents } from '../../../reducers/intents';
-
 import {
-  headerWrapper, header, company, banner, title, selectButton,
+  headerWrapper, header, company, banner, title,
 } from './Header.style';
 
 const { Header: AntdHeader } = Layout;
 
 const { Title } = Typography;
 
-const Header = ({ showModal }) => {
-  const dispatch = useDispatch();
-  const intentsCount = useSelector(selectIntentsCount);
-  const selectedIntentsList = useSelector(selectSelectedIntentsList);
-  const allSelected = intentsCount === selectedIntentsList.length;
-
-  const selectAll = () => {
-    if (allSelected) {
-      dispatch(unselectAllIntents());
-    } else {
-      dispatch(selectAllIntents());
-    }
-  };
-
-  return (
-    <AntdHeader style={headerWrapper}>
-      <Row style={header}>
-        <Title level={3} style={company}> ultimate.ai </Title>
-      </Row>
-      <Row style={banner} justify="space-between">
-        <Col>
-          {/* TODO: Add a progress indicator of the bot creation process */}
-          <Title level={2} style={title}> Choose your reply templates </Title>
-        </Col>
-        <Col>
-          {/* TODO: Add a search bar */}
-          <Button size="large" shape="round" onClick={selectAll} style={selectButton}>
-            {allSelected ? 'Unselect All' : 'Select All'}
-          </Button>
-          <Button type="primary" size="large" shape="round" onClick={showModal}>Submit</Button>
-        </Col>
-      </Row>
-    </AntdHeader>
-  );
-};
+const Header = ({ showModal }) => (
+  <AntdHeader style={headerWrapper}>
+    <Row style={header}>
+      <Title level={3} style={company}> ultimate.ai </Title>
+    </Row>
+    <Row style={banner} justify="space-between">
+      {/* TODO: Add a progress indicator of the bot creation process */}
+      <Col>
+        <Button type="primary" size="large" shape="round">Previous</Button>
+      </Col>
+      <Col>
+        <Title level={2} style={title}> Choose your reply templates </Title>
+      </Col>
+      <Col>
+        <Button type="primary" size="large" shape="round" onClick={showModal}>Next</Button>
+      </Col>
+    </Row>
+  </AntdHeader>
+);
 
 Header.propTypes = {
   showModal: PropTypes.func.isRequired,

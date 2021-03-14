@@ -16,7 +16,7 @@ const RoundModal = styled(Modal)`
     font-family: Montserrat, sans-serif;
     border-radius: 30px;
     padding: 10px;
-    margin-top: 15%;
+    margin-top: 25%;
   }
 
   .ant-modal-title {
