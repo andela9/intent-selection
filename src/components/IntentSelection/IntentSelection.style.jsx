@@ -8,8 +8,9 @@ export const layout = {
 export const content = {
   marginTop: 220,
   background: 'white',
-  marginLeft: '8%',
-  marginRight: '8%',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
 };
 
 export default { layout, content };

@@ -7,7 +7,7 @@ import { selectIntentsList, selectSelectedIntentsList } from '../../../selectors
 import { selectAllIntents, unselectAllIntents } from '../../../reducers/intents';
 
 import Intent from './Intent';
-import { selectButton } from './IntentList.style';
+import { intentList, selectButton, toolbar } from './IntentList.style';
 
 const IntentList = () => {
   const dispatch = useDispatch();
@@ -25,14 +25,14 @@ const IntentList = () => {
 
   return (
     <>
-      <Row style={{ padding: '0px 8%', marginTop: 10, marginBottom: 10 }}>
+      <Row style={toolbar}>
         <Button size="large" shape="round" onClick={selectAll} style={selectButton}>
           {allSelected ? 'Unselect All' : 'Select All'}
         </Button>
         {/* TODO: Add implementation, use input instead */}
         <Button size="large" shape="round" icon={<SearchOutlined />}>Search</Button>
       </Row>
-      <Row justify="center">
+      <Row style={intentList}>
         {intentsList.map((intent) => (
           <Intent
             key={intent.name}

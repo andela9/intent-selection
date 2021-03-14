@@ -23,9 +23,9 @@ const Intent = ({ info }) => {
       hoverable
       style={getCardStyle(info.selected)}
     >
-      <Title level={3} style={getMargin(0)}>{info.name}</Title>
+      <Title level={4} style={getMargin(0)}>{info.name}</Title>
       <Row style={getMargin(20)}>{info.description}</Row>
-      <Row style={getMargin(5)}>
+      <Row style={getMargin(8)}>
         {/* TODO: Maybe add a see more examples icon */}
         <Text strong>Examples: </Text>
       </Row>

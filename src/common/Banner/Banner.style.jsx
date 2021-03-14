@@ -13,4 +13,8 @@ export const banner = {
   paddingTop: 80,
 };
 
+export const button = {
+  width: 110,
+};
+
 export default { banner };

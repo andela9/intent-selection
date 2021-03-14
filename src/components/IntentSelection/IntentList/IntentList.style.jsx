@@ -3,4 +3,12 @@ export const selectButton = {
   width: 140,
 };
 
-export default { selectButton };
+export const toolbar = {
+  padding: '0px 15%',
+  margin: '10px 0',
+  width: '100%',
+};
+
+export const intentList = { width: 1270 };
+
+export default { intentList, toolbar, selectButton };
