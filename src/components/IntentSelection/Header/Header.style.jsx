@@ -1,14 +1,11 @@
-import { colors } from '../../../utils/constants';
-
 export const headerWrapper = {
   position: 'fixed',
   zIndex: 1,
   width: '100%',
   background: 'white',
-  height: 200,
   verticalAlign: 'center',
-  borderBottom: `1px solid ${colors.gray}`,
   padding: 0,
+  height: 50,
 };
 
 export const header = {
@@ -19,18 +16,7 @@ export const header = {
 
 export const company = {
   color: 'white',
-  lineHeight: 2,
+  lineHeight: 2.15,
 };
 
-export const banner = {
-  padding: '0 15%',
-  marginTop: 70,
-};
-
-export const title = {
-  lineHeight: 2,
-};
-
-export default {
-  headerWrapper, header, company, banner, title,
-};
+export default { headerWrapper, header, company };

@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import useModal from '../../utils/useModal';
 
 import Header from './Header';
+import Banner from './Banner';
 import IntentList from './IntentList';
 import ConfirmationModal from './ConfirmationModal';
 
@@ -16,7 +17,8 @@ const IntentSelection = () => {
 
   return (
     <Layout style={layout}>
-      <Header showModal={showConfirmationModal} />
+      <Header />
+      <Banner showModal={showConfirmationModal} />
       <Content style={content}>
         <IntentList />
         <ConfirmationModal

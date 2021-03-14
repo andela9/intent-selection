@@ -24,7 +24,7 @@ const IntentList = () => {
 
   return (
     <>
-      <Row style={{ padding: '0px 8%', margin: '20px 0' }}>
+      <Row style={{ padding: '0px 8%', marginTop: 10, marginBottom: 10 }}>
         {/* TODO: Add a search bar */}
         <Button size="large" shape="round" onClick={selectAll} style={selectButton}>
           {allSelected ? 'Unselect All' : 'Select All'}
