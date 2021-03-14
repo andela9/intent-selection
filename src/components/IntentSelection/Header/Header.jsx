@@ -10,7 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectSelectedIntentsList, selectIntentsCount } from '../../../selectors/intents';
 import { selectAllIntents, unselectAllIntents } from '../../../reducers/intents';
 
-import { headerStyle, titleStyle } from './Header.style';
+import {
+  headerWrapper, header, company, banner, title, selectButton,
+} from './Header.style';
 
 const { Header: AntdHeader } = Layout;
 
@@ -31,15 +33,18 @@ const Header = ({ showModal }) => {
   };
 
   return (
-    <AntdHeader style={headerStyle}>
-      <Row justify="space-between">
+    <AntdHeader style={headerWrapper}>
+      <Row style={header}>
+        <Title level={3} style={company}> ultimate.ai </Title>
+      </Row>
+      <Row style={banner} justify="space-between">
         <Col>
           {/* TODO: Add a progress indicator of the bot creation process */}
-          <Title level={2} style={titleStyle}> Choose your reply templates </Title>
+          <Title level={2} style={title}> Choose your reply templates </Title>
         </Col>
         <Col>
           {/* TODO: Add a search bar */}
-          <Button size="large" shape="round" onClick={selectAll} style={{ marginRight: 10 }}>
+          <Button size="large" shape="round" onClick={selectAll} style={selectButton}>
             {allSelected ? 'Unselect All' : 'Select All'}
           </Button>
           <Button type="primary" size="large" shape="round" onClick={showModal}>Submit</Button>

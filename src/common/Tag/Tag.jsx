@@ -3,14 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Tag as AntTag } from 'antd';
 
-import tagStyle from './Tag.style';
+import tag from './Tag.style';
 
 const Tag = ({ value }) => (
-  <AntTag
-    style={tagStyle}
-  >
-    {value}
-  </AntTag>
+  <AntTag style={tag}>{value}</AntTag>
 );
 
 Tag.propTypes = {

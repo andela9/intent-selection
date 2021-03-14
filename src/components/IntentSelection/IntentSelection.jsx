@@ -7,7 +7,7 @@ import Header from './Header';
 import IntentList from './IntentList';
 import ConfirmationModal from './ConfirmationModal';
 
-import { layoutStyle, contentStyle } from './IntentSelection.style';
+import { layout, content } from './IntentSelection.style';
 
 const { Content } = Layout;
 
@@ -15,9 +15,9 @@ const IntentSelection = () => {
   const [showConfirmationModal, hideConfirmationModal, isConfirmationModalVisible] = useModal();
 
   return (
-    <Layout style={layoutStyle}>
+    <Layout style={layout}>
       <Header showModal={showConfirmationModal} />
-      <Content style={contentStyle}>
+      <Content style={content}>
         <IntentList />
         <ConfirmationModal
           hide={hideConfirmationModal}
