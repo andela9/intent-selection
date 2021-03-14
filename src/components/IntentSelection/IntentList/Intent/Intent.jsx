@@ -6,12 +6,11 @@ import { Card, Typography, Row } from 'antd';
 
 import { clickIntent } from '../../../../reducers/intents';
 import { getMargin } from '../../../../utils/styleUtil';
-import common from '../../../../common';
+import Tag from '../../../../common/Tag';
 
 import { getCardStyle } from './Intent.style';
 
 const { Title, Text } = Typography;
-const { Tag } = common;
 
 const Intent = ({ info }) => {
   const dispatch = useDispatch();

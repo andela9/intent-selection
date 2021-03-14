@@ -6,26 +6,20 @@ import { useSelector } from 'react-redux';
 import { Row } from 'antd';
 import { selectSelectedIntentsList } from '../../../selectors/intents';
 
-import common from '../../../common';
+import Modal from '../../../common/Modal';
+import Tag from '../../../common/Tag';
 import { getMargin } from '../../../utils/styleUtil';
 
-import RoundModal from './ConfirmationModal.style';
-
-const { Tag } = common;
-
-const IntentList = ({ hide, isVisible }) => {
+const ConfirmationModal = ({ hide, isVisible }) => {
   const intents = useSelector(selectSelectedIntentsList);
 
   return (
-    <RoundModal
+    <Modal
       title="Reply template list"
       visible={isVisible}
       onOk={hide}
       onCancel={hide}
       okText="Confirm"
-      cancelText="Cancel"
-      okButtonProps={{ type: 'primary', shape: 'round' }}
-      cancelButtonProps={{ shape: 'round' }}
     >
       <Row style={getMargin(10)}>
         {intents.length
@@ -38,13 +32,13 @@ const IntentList = ({ hide, isVisible }) => {
           <Tag key={intent.name} value={intent.name} />
         ))}
       </Row>
-    </RoundModal>
+    </Modal>
   );
 };
 
-IntentList.propTypes = {
+ConfirmationModal.propTypes = {
   hide: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
 };
 
-export default IntentList;
+export default ConfirmationModal;
