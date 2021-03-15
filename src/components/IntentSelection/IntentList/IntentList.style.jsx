@@ -10,6 +10,6 @@ export const toolbar = {
   width: '100%',
 };
 
-export const intentList = { width: 1270 };
+export const intentList = { width: 1260 };
 
 export default { intentList, toolbar, selectButton };
