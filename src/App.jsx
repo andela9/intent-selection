@@ -4,12 +4,12 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
 
-import IntentList from './components/IntentSelection';
+import IntentSelection from './components/IntentSelection';
 
 function App() {
   return (
     <div className="App">
-      <IntentList />
+      <IntentSelection />
     </div>
   );
 }

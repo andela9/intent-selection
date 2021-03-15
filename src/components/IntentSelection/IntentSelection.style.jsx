@@ -1,8 +1,5 @@
 export const layout = {
   background: 'white',
-  textAlign: 'left',
-  fontFamily: 'Montserrat, sans-serif',
-  fontSize: 14,
 };
 
 export const content = {
