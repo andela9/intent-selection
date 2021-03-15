@@ -5,7 +5,8 @@ export const selectButton = {
 
 export const toolbar = {
   padding: '0px 15%',
-  margin: '10px 0',
+  marginTop: 10,
+  marginBottom: 10,
   width: '100%',
 };
 
