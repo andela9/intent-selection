@@ -7,10 +7,10 @@ export const banner = (width) => ({
   zIndex: 1,
   width: '100%',
   background: 'white',
-  height: 150,
+  height: width < tablet ? 80 : 150,
   verticalAlign: 'center',
   borderBottom: `1px solid ${colors.gray}`,
-  padding: width < tablet ? '80px 5% 0' : '80px 15% 0',
+  padding: width < tablet ? '20px 5% 0' : '80px 15% 0',
   marginTop: 50,
 });
 

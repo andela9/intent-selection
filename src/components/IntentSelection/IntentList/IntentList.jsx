@@ -5,12 +5,15 @@ import { SearchOutlined } from '@ant-design/icons';
 
 import { selectIntentsList, selectSelectedIntentsList } from '../../../selectors/intents';
 import { selectAllIntents, unselectAllIntents } from '../../../reducers/intents';
+import useWindowSize from '../../../utils/useWindowSize';
 
 import Intent from './Intent';
 import { intentList, selectButton, toolbar } from './IntentList.style';
 
 const IntentList = () => {
   const dispatch = useDispatch();
+  const { width } = useWindowSize();
+
   const intentsList = useSelector(selectIntentsList);
   const selectedIntentsList = useSelector(selectSelectedIntentsList);
   const allSelected = intentsList.length === selectedIntentsList.length;
@@ -32,7 +35,7 @@ const IntentList = () => {
         {/* TODO: Add implementation, use input instead */}
         <Button size="large" shape="round" icon={<SearchOutlined />}>Search</Button>
       </Row>
-      <Row style={intentList}>
+      <Row style={intentList(width)}>
         {intentsList.map((intent) => (
           <Intent
             key={intent.name}
