@@ -20,7 +20,7 @@ const IntentSelection = () => {
   return (
     <Layout style={layout}>
       <Header />
-      <Banner title="Choose your reply templates" onPrev={() => {}} onNext={showConfirmationModal} />
+      <Banner label="Choose your reply templates" onPrev={() => {}} onNext={showConfirmationModal} />
       <Content style={content}>
         <IntentList />
         <ConfirmationModal

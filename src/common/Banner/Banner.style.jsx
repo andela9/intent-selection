@@ -1,6 +1,8 @@
-import { colors } from '../../utils/constants';
+import { colors, size } from '../../utils/constants';
 
-export const banner = {
+const { laptop, tablet } = size;
+
+export const banner = (width) => ({
   position: 'fixed',
   zIndex: 1,
   width: '100%',
@@ -8,13 +10,22 @@ export const banner = {
   height: 150,
   verticalAlign: 'center',
   borderBottom: `1px solid ${colors.gray}`,
-  padding: '0 15%',
+  padding: width < tablet ? '80px 5% 0' : '80px 15% 0',
   marginTop: 50,
-  paddingTop: 80,
-};
+});
 
-export const button = {
+export const button = (width) => (width < laptop ? {
+  width: 40,
+  padding: '0 10px',
+} : {
   width: 110,
-};
+});
 
-export default { banner };
+export const title = (width) => (width < tablet ? {
+  fontSize: 23,
+  lineHeight: 1.75,
+} : {
+  fontSize: 30,
+});
+
+export default { banner, button, title };
